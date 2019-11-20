@@ -51,11 +51,11 @@
        global $db;
        
        $results = [];
-       $stmt = $db->prepare("SELECT * FROM user WHERE user_name = :user AND pass = sha1(:pass)");
+       $stmt = $db->prepare("SELECT * FROM user WHERE user_name = :user AND pass = (:pass)");
        
        $binds = array(
            ":userame" => $user,
-           ":password" => $pass
+           ":password" => sha1($pass)
        
         );
        
@@ -84,12 +84,12 @@
             $binds['schoolName'] = '%'.$name.'%';
        }
        if ($city != "") {
-           $sql .= " AND schoolCity LIKE :city";
-           $binds['city'] = '%'.$city.'%';
+           $sql .= " AND schoolCity LIKE :schoolCity";
+           $binds['schoolCity'] = '%'.$city.'%';
        }
        if ($state != "") {
-           $sql .= " AND schoolState LIKE :state";
-           $binds['state'] = '%'.$state.'%';
+           $sql .= " AND schoolState LIKE :schoolState";
+           $binds['schoolState'] = '%'.$state.'%';
        }
        
         
@@ -102,16 +102,20 @@
         return ($results);
    }
    
-   function insertSchools($file_name){
-       $file = fopen ($file_name, 'rb');
-       $count = 0;
-       while (!feof($file) && $count < 10000) {
+    function insertSchools($file_name){
+       $file = fopen($file_name, 'rb');
+       $school = fgetcsv($file);
+       
+       while(!feof($file)){
+           
            $school = fgetcsv($file);
-           $addSchool = addSchool();
-           $count = $count + 1;
+           $addSchool = addSchool($school[0], $school[1], $school[2]);
+          
+          
         }
        
    }
+   
+     
     
-   insertSchools ('schools.csv');
    

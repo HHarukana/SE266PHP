@@ -24,7 +24,8 @@
                 
                 $_SESSION['use'] = $user;
                 $deleteAllSchools = deleteAllSchools();
-                $insertSchools = insertSchools();
+                $file_name ='schools.csv';
+                $insertSchools = insertSchools($file_name);
                 header('Location: search.php');
                 
             }

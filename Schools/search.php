@@ -41,12 +41,12 @@
     <br>
     <div class="form-element">
         <label>City: </label>
-        <input type="text" name="city" value="">
+        <input type="text" name="schoolCity" value="">
     </div>
     <br>
     <div class="form-element">
         <label>State: </label>
-        <input type="text" name="state" value="">
+        <input type="text" name="schoolState" value="">
     </div>
     <br>
     <button type="submit" name="search" value="Search">Search</button>
