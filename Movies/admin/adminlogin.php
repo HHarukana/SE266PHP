@@ -43,8 +43,10 @@
 </head>
 
 <body>
-    
+    <a href="/Week6/Movies/index.php">Main Page</a>
     <h1>Movie Admin Login</h1>
+    
+    
     
     
 <form method="post" name="signin" action = "adminlogin.php">

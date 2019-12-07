@@ -30,7 +30,7 @@
         
     <div class="col-sm-offset-2 col-sm-10">
         <h1>Movies</h1>
-        
+        <a href="../admin/adminadd.php">Add a Movie</a>
         
     <table class="table table-striped">
             <thead>
@@ -47,7 +47,7 @@
                 <tr>
                     <td><?php echo $row['movie_id']; ?></td>
                     <td><?php echo $row['movie_name']; ?></td>
-                    <td><a href="movireview.php?id=<?php echo $row['movie_id']; ?>">View Movie</a></td>
+                    <td><a href="../movieview.php?id=<?php echo $row['movie_id']; ?>">View Movie</a></td>
                     <td><a href="movieupdate.php?id=<?php echo $row['movie_id']; ?>">Update</a></td>
                 </tr>
             <?php endforeach; ?>

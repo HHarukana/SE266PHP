@@ -63,8 +63,8 @@
         // must implement
     //}
     
-    //function insertMovieReview ($id, $rating, $review_description) {
-         // must implement
+    //function insertMovieReview ($id, $movie_review_rating, $movie_review_narrative) {
+         
     //}
     
     function checkLogin ($user, $pass) {
